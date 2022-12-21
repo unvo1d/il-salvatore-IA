@@ -1,0 +1,70 @@
+4XX
+#epochs = iteraciones
+#batch_size = cuantas imagenes lee de todo el conjunto en cada pasada, si las lee todas o demasiadas = sobrentrenamiento
+#para normalizar se divide entre el mayor valor
+from keras.utils import to_categorical #hacer siempre para este tipo de algoritmos, (clasificacion), one hot encoding
+                                    #transforma cualquier numero de clases en valores de 0 y 1
+5XX
+print(type(train_set_x_orig))
+
+#concatenamos ambos conjuntos de X para que no estén desproporcionados
+new_x = np.concatenate((train_set_x_orig, test_set_x_orig), axis=0)
+new_x.shape
+
+#lo volvemos a separar ya con la correcta separación, no tan desproporcionada como antes
+#podemos probar 80%- 20%
+X_train, X_test, y_train, y_test = train_test_split(new_x,
+                                                    new_y, 
+                                                    test_size=0.25,
+                                                    random_state=50)
+                                                    
+from keras import models
+from keras import layers
+
+network = models.Sequential()
+#primera capa convolucional, 32 neuronas filtro 3*3 
+network.add(layers.Conv2D(32, (3, 3), activation='relu', input_shape=(64, 64, 3)))
+#corte(downsampling) de 2*2, este proceso no calcula parametros, no tiene aprendizaje, solo corta
+network.add(layers.MaxPool2D((2,2)))
+#flatten de presalida
+network.add(layers.Flatten())
+network.add(layers.Dense(256, activation = 'relu'))
+#capa de salida
+network.add(layers.Dense(2, activation='softmax'))
+
+
+#none = no especificado, no significa que no haya, solo que no le has dicho cuantas hay
+
+#inferred = una clase por carpeta, podria ser binary pero la capa de salida tendria que ser sigmoide, con esto es
+# softmax 
+# img size de train, validacion y test tienen que ser identicas
+
+
+
+MODELO CNN
+from keras import models
+from keras import layers
+
+network = models.Sequential()
+#primera capa convolucional, 32 neuronas filtro 3*3 
+network.add(layers.Conv2D(32, (3, 3), activation='relu', input_shape=(256, 256, 3)))
+
+#corte(downsampling) de 2*2, este proceso no calcula parametros, no tiene aprendizaje, solo corta
+network.add(layers.MaxPool2D((2,2)))
+
+#CUIDADO, ESTA CAPA YA NO TIENE INPUTS, TOMA DE LA ANTERIOR
+network.add(layers.Conv2D(64, (3, 3), activation='relu'))
+
+#corte(downsampling) de 2*2, este proceso no calcula parametros, no tiene aprendizaje, solo corta
+network.add(layers.MaxPool2D((2,2)))
+
+#flatten de presalida
+network.add(layers.Flatten())
+
+#capa adicional
+network.add(layers.Dense(256, activation = 'relu'))
+
+#capa de salida
+network.add(layers.Dense(2, activation='softmax'))
+
+
