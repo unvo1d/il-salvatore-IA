@@ -1,0 +1,78 @@
+402
+----------------
+	
+Sigmoide
+matriz de 0's
+.shape
+
+(punto 5 importante)
+
+forward and backward propagation
+	db
+	dw
+	cost
+funcion de optimizacion
+predict
+learning rate
+
+____________________________________________
+
+403 - NeuralNetwork
+-----------------
+
+PASOS PARA HACER NN
+
+aniadir capas
+	network.add(layers)
+	->dense: todas las neuronas conectadas entre si
+
+	+numero de neuronas
+	+tipo de activacion (relu, sigmoid, tanh, leaklyRelu)
+	+input_shape
+
+	capa de salida (10, softmax) 
+		#10 porque son las clases (ej. 10 cifras)
+		#softmax: te as una salida para cada clase y elige el max
+
+.compile
+.summary
+
+convertir valores RGB en floats
+
+hacer el .fit
+.evaluate con los test (no con train)
+
+
+______________________________________________
+
+404
+-----------------
+
+Es igual que el 403 pero con dos capas de procesamiento
+
+
+    6.1. Define the layers (Dense). Remember you have to specify:
+    6.2. Number of neurons for each layer
+    6.3. Activation function
+    6.4. For the first layer, the input_shape (already flattened)
+    6.5. For the last layer (the output layer), the number of neurons and the activation
+
+para el compile:
+	optimizador
+	funcion loss
+	print de epocas
+
+_______________________________________________
+
+599_Bueno
+------------------
+
+matplotlib
+data pre-processing
+modelo cnn (con summary + compile)
+.fit accuracy
+vgg16
+vgg19
+Neural transfer
+Fine tunning
+Visualizacion de capas intermedias
