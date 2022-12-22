@@ -76,3 +76,22 @@ vgg19
 Neural transfer
 Fine tunning
 Visualizacion de capas intermedias
+
+___________________________________________________
+
+601
+--------------------------
+
+Text standardization
+Text splitting (tokenization)
+Vocabulary indexing
+
+explicit functions
+
+class vectorizer
+
+keras tools
+
+sets and sequences
+
+TextVectorization(multi_hot)
